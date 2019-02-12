@@ -85,7 +85,7 @@ Vue.directive('add-child-class', {
     if(!empty(binding.value, 'string')) {
       vnode.context.$nextTick(() => {
         Array.from(el.children).forEach(cEl => {
-          cEl.classList.add(binding.value);
+          cEl.className = cEl.className + (cEl.className.length > 0 ? ' ' : '') + binding.value;
         });
       });
     }

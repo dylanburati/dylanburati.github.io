@@ -59,7 +59,11 @@
 }
 
 .theme--light.application {
-	background-color: #eff2f5;
+	background-color: #d8e2eb;
+}
+
+.bg-light {
+	background-color: #f8f9fa;
 }
 
 .anchor {
