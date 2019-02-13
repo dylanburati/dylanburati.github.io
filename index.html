@@ -37,25 +37,71 @@
         <v-container v-bind:class="[$vuetify.breakpoint.mdAndUp ? 'px-4' : 'px-3']"
                 v-bind:style="{'padding-top': ($vuetify.breakpoint.mdAndUp ? '64px' : '56px')}">
           <img style="width: 100%; max-width: 100%;" src="/assets/header.png">
-          <div class="bg-light px-4 py-2 ma-0">
-            <v-card class="elevation-5">
-              <v-card-title class="mb-0 pb-0">
-                <h2 class="mb-2 display-1">About</h2>
-              </v-card-title>
-              <v-card-title>
-                <v-layout d-flex align-center class="mt-3 mb-2">
-                  <div class="flex-01 mr-3 pa-2" style="max-width: 150px !important;">
-                    <img style="min-width: 64px; max-width: 100%" src="/assets/headshot.png">
-                  </div>
-                  <p class="subheading">
-                     I am a freshman at Northeastern University majoring in Electrical and Computer Engineering.
-                     My background knowledge comes from developing applications in Java (Android and standalone),
-                     but my goal is to gain expertise in both software and hardware.
-                  </p>
+          <v-card class="elevation-5 mb-2">
+            <v-card-title class="mb-0 pb-0">
+              <h2 class="mb-2 display-1">About</h2>
+            </v-card-title>
+            <v-card-text>
+              <v-layout d-flex align-center class="my-0">
+                <div class="flex-01 mr-3 pa-2" style="max-width: 150px !important;">
+                  <img style="min-width: 64px; max-width: 100%" src="/assets/headshot.png">
+                </div>
+                <p class="subheading">
+                   I am a freshman at Northeastern University majoring in Electrical and Computer Engineering.
+                   My background knowledge comes from developing applications in Java (Android and standalone),
+                   but my goal is to gain expertise in both software and hardware.
+                </p>
+              </v-layout>
+            </v-card-text>
+          </v-card>
+          <v-card class="elevation-5">
+            <v-card-title class="display-1">Projects</v-card-title>
+            <v-layout d-flex wrap class="pa-3">
+              <v-layout d-flex column v-for="(project, i) in projects" v-bind:key="i"
+                      class="mb-3" style="border: solid 1px rgba(0,0,0,.26); min-width: 320px !important; flex-basis: 50% !important;"
+                      v-bind:style="projectCellBorders(i)" ref="projectCell">
+                <v-card-title primary-title class="flex-01">
+                  <v-layout d-flex align-center>
+                    <h2 class="mb-2 headline" v-text="project.name"></h2>
+                    <v-spacer></v-spacer>
+                    <v-btn flat icon color="primary" class="flex-01 btn-dense" style="margin-top: -6px !important; margin-right: 0 !important;"
+                            v-attach-click-handler="project.href">
+                      <v-icon v-if="fontsReady">
+                        open_in_new
+                      </v-icon>
+                    </v-btn>
+                  </v-layout>
+                </v-card-title>
+
+                <v-card-text v-text="project.description" class="flex-01 py-0 mb-2">
+                </v-card-text>
+
+                <v-layout d-flex column justify-end>
+                  <v-card-text class="flex-01" v-if="!empty(project.technologies, 'string')">
+                    <span class="font-weight-bold mr-1">Technologies used:</span>
+                    {{ project.technologies }}
+                  </v-card-text>
+
+                  <v-card-text class="flex-01" v-if="!empty(project.concepts, 'string')">
+                    <span class="font-weight-bold mr-1">Concepts learned:</span>
+                    {{ project.concepts }}
+                  </v-card-text>
                 </v-layout>
-              </v-card-title>
-            </v-card>
-          </div>
+
+                <!-- <v-card-actions>
+                  <v-layout d-flex align-center class="pa-0 ma-0">
+                    <v-btn flat color="primary" v-on:click="window.location = topic.href">View</v-btn>
+                    <v-btn v-if="validUser" flat color="primary" v-on:click="startTopicCreate(topic)">
+                      Create similar
+                    </v-btn>
+                  </v-layout>
+                </v-card-actions> -->
+              </v-layout>
+              <template v-if="projects.length % 12 != 0">
+                <div v-for="spacer in (12 - projects.length % 12)" style="flex: 1 1 50% !important;"></div>
+              </template>
+            </v-layout>
+          </v-card>
         </v-container>
       </v-content>
     </v-app>
@@ -81,8 +127,26 @@
             { href: 'https://github.com/dylanburati', text: 'Github', action: '' },
             { href: 'https://www.linkedin.com/in/dylanburati/', text: 'LinkedIn', action: '' },
           ]
-        }
+        },
         // ----- //
+        projects: [
+          {
+            name: 'CNChat',
+            description: 'A simple end-to-end encrypted chat application. The server runs on Java ' +
+              'and can accept any number of clients. The client is written in JavaScript, and is ' +
+              'intended to run in the browser.',
+            href: 'https://github.com/dylanburati/CNChat',
+            technologies: 'Java, JavaScript, MySQL',
+            concepts: 'Multithreading, data schemas, encryption (Diffie-Hellman key exchange, HMAC-SHA256, AES)'
+          },
+          {
+            name: 'Relisten',
+            description: 'A website for keeping track of music you like, and sharing it with friends.',
+            href: 'https://relisten.xyz',
+            technologies: 'HTML, CSS, JavaScript, Vue.js (frontend); PHP, MySQL, Apache SOLR (backend)',
+            concepts: 'User interfaces, social networks, system administration'
+          }
+        ]
       },
       mounted: function() {
         this.$nextTick(() => {
@@ -95,6 +159,23 @@
       },
       methods: {
         empty: empty,
+        projectCellBorders: function(i) {
+          if(empty(this.$refs, 'object') || empty(this.$refs.projectCell, 'array')) {
+            return {};
+          }
+          const currentEl = this.$refs.projectCell[i];
+          const borderStyle = 'solid 1px rgba(0,0,0,.26)'
+          const styleObj = { 'border-top': borderStyle, 'border-bottom': borderStyle, 'border-left': borderStyle };
+          if(i === this.projects.length - 1) {
+            styleObj['border-right'] = 'solid 1px rgba(0,0,0,.26)';
+          } else {
+            const nextEl = this.$refs.projectCell[i + 1];
+            if(nextEl.offsetTop !== currentEl.offsetTop) {
+              styleObj['border-right'] = 'solid 1px rgba(0,0,0,.26)';
+            }
+          }
+          return styleObj;
+        }
       }
     });
 
