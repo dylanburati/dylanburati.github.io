@@ -39,9 +39,7 @@
             <img style="width: 100%; min-width: 800px;" src="/assets/header.png">
           </div>
           <v-card class="elevation-5 mb-2">
-            <v-card-title class="mb-0 pb-0">
-              <h2 class="mb-2 display-1">About</h2>
-            </v-card-title>
+            <v-card-title class="display-1 pt-4 pb-0">About</v-card-title>
             <v-card-text>
               <v-layout d-flex align-center class="my-0">
                 <div v-if="$vuetify.breakpoint.smAndUp" class="flex-01 mr-3 pa-2" style="max-width: 150px !important;">
@@ -56,7 +54,7 @@
             </v-card-text>
           </v-card>
           <v-card class="elevation-5">
-            <v-card-title class="display-1">Projects</v-card-title>
+            <v-card-title class="display-1 pt-4 pb-0">Projects</v-card-title>
             <v-layout d-flex wrap class="pa-3">
               <v-layout d-flex column v-for="(project, i) in projects" v-bind:key="i"
                       class="mb-3" style="min-width: 320px !important; flex-basis: 50% !important;"
