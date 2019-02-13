@@ -9,7 +9,7 @@ Vue.component('nav-link', {
     handler: String
   },
   template: '<li v-bind:style="styleObj" :onclick="handler" v-on:click="navLinkPassThrough">\n' +
-  '<a class="nav-link" :href="linkdata.href">{{ linkdata.text }}</a>\n' +
+  '<a class="subheading nav-link" :href="linkdata.href">{{ linkdata.text }}</a>\n' +
   '</li>',
   computed: {
     styleObj: function() {
