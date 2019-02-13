@@ -47,11 +47,16 @@
                 <div v-if="$vuetify.breakpoint.smAndUp" class="flex-01 mr-3 pa-2" style="max-width: 150px !important;">
                   <img style="min-width: 64px; max-width: 100%" src="/assets/headshot.png">
                 </div>
-                <p class="subheading">
-                   I am a freshman at Northeastern University majoring in Electrical and Computer Engineering.
-                   My background knowledge comes from developing applications in Java (Android and standalone),
-                   but my goal is to gain expertise in both software and hardware.
-                </p>
+                <div class="mr-4">
+                  <p class="subheading">
+                    I am a freshman at Northeastern University majoring in Electrical and Computer Engineering.
+                    My background knowledge comes from developing applications in Java (Android and standalone),
+                    but my goal is to gain expertise in both software and hardware.
+                  </p>
+                  <p class="subheading">
+                    You can contact me at <span class="font-weight-medium">d.shea.burati@gmail.com.</span>
+                  </p>
+                </div>
               </v-layout>
             </v-card-text>
           </v-card>
@@ -103,6 +108,10 @@
               </template>
             </v-layout>
           </v-card>
+          <div class="px-1 py-5">
+            <p class="subheading pt-2 mb-0" style="color: #34475b">&copy; 2019 Dylan Burati</p>
+            <p class="subheading mb-0" style="color: #34475b">Banner Image: Jay Peak, taken February 22, 2017</p>
+          </div>
         </v-container>
       </v-content>
     </v-app>
