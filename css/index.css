@@ -2,8 +2,9 @@
   font-size: 0.8571em;
 }
 
-.page-header-image {
+.page-header .page-header-image {
   object-fit: cover;
+  z-index: -2;
 }
 
 .page-header {
@@ -28,6 +29,7 @@
 
 .page-header::before {
   background: rgba(0, 0, 0, 0.1);
+  z-index: -1;
 }
 
 .section {
