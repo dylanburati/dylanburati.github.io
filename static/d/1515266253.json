@@ -1,0 +1,1 @@
+{"data":{"allMarkdownRemark":{"edges":[{"node":{"fields":{"slug":"/posts/puredata-compiler/"},"frontmatter":{"title":"PureData Compiler","subtitle":"Some notes on developing a Python interface to the PureData graphical audio language.\n","date":"Sep 30,2019"}}}]}}}
