@@ -1,4 +1,53 @@
-<!doctypehtml><html lang=en><link href="/favicon-32x32.png?v=63e0b008eeeb829346581f2691cad995"rel=icon type=image/png><link href=/manifest.webmanifest rel=manifest><link href="/icons/icon-48x48.png?v=63e0b008eeeb829346581f2691cad995"rel=apple-touch-icon type=image/png><link href="/icons/icon-72x72.png?v=63e0b008eeeb829346581f2691cad995"rel=apple-touch-icon type=image/png><link href="/icons/icon-96x96.png?v=63e0b008eeeb829346581f2691cad995"rel=apple-touch-icon type=image/png><link href="/icons/icon-144x144.png?v=63e0b008eeeb829346581f2691cad995"rel=apple-touch-icon type=image/png><link href="/icons/icon-192x192.png?v=63e0b008eeeb829346581f2691cad995"rel=apple-touch-icon type=image/png><link href="/icons/icon-256x256.png?v=63e0b008eeeb829346581f2691cad995"rel=apple-touch-icon type=image/png><link href="/icons/icon-384x384.png?v=63e0b008eeeb829346581f2691cad995"rel=apple-touch-icon type=image/png><link href="/icons/icon-512x512.png?v=63e0b008eeeb829346581f2691cad995"rel=apple-touch-icon type=image/png><title data-react-helmet=true>Fundamentals of CS 1 | Dylan Burati</title><meta content="width=device-width,initial-scale=1"data-react-helmet=true name=viewport><meta content="My personal website, built with Gatsby"data-react-helmet=true name=description><script>!function(){try{var t=localStorage.theme||"light";document.documentElement.dataset.theme=t}catch(t){}}()</script><script defer src=/index.JDNIO36M.js></script><link href=/index.K72O5YB3.css rel=stylesheet><div id=root><nav class="px-5 bg-navy-dark py-3"><div class="container mx-auto flex items-center"><a href=/ class="hover:text-white font-semibold text-gray-200 text-xl">Dylan Burati</a><button class="hover:text-white ml-4 text-gray-400"title="Toggle Theme"><svg class=stroke-current fill=none height=24 stroke=currentColor stroke-linecap=round stroke-linejoin=round stroke-width=2 style=fill:transparent viewBox="0 0 24 24"width=24 xmlns=http://www.w3.org/2000/svg><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button><div class=flex-grow></div><a href=/blog class="hover:text-white ml-4 text-gray-400"title=Blog>Blog</a><a href=https://github.com/dylanburati class="hover:text-white ml-4 text-gray-400"title=GitHub><svg class=stroke-current fill=none height=24 stroke=currentColor stroke-linecap=round stroke-linejoin=round stroke-width=2 style=fill:transparent viewBox="0 0 24 24"width=24 xmlns=http://www.w3.org/2000/svg aria-label=GitHub><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></a><a href=https://linkedin.com/in/dylanburati class="hover:text-white ml-4 text-gray-400"title=LinkedIn><svg class=stroke-current fill=none height=24 stroke=currentColor stroke-linecap=round stroke-linejoin=round stroke-width=2 style=fill:transparent viewBox="0 0 24 24"width=24 xmlns=http://www.w3.org/2000/svg aria-label=LinkedIn><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect height=12 width=4 x=2 y=9 /><circle cx=4 cy=4 r=2 /></svg></a></div></nav><main class=px-5><div class="container mx-auto"><div class=my-8><h1 class=mb-0>Fundamentals of CS 1</h1><span class=text-pen-lighter>10/25/2019<span class="pb-px px-3 text-lg text-paper-dark">|</span>Dylan Burati</span></div><div data-md-article><p>Notes/tools for Northeastern's intro to CS class.<h2 id=background>Background</h2><p>Northeastern's computer science faculty decided at some point to rewrite their introductory CS classes, to have a focus on designing programs over just writing code. The course is taught in <a href=https://racket-lang.org>Racket</a>, or more specifically, the <a href=https://felleisen.org/matthias/OnHtDP/Teaching_Languages___SL___Not_Racket.html>"Teaching Languages"</a>, which are subsets of Racket that limit certain language features and promote test-driven development.<div class="rounded border border-paper-dark max-w-xs p-5 shadow-lg table-of-contents"><p class="text-sm mb-0 font-bold uppercase">TABLE OF CONTENTS<div class="mr-5 mt-2"><ul><li><a href=#background>Background</a><li><a href=#notes>Notes</a><ul><li><a href=#design-recipe>Design Recipe</a><li><a href=#following-the-design-recipe>Following the Design Recipe</a><li><a href=#list-abstractions>List Abstractions</a><li><a href=#local-lambda>Local, Lambda</a><li><a href=#multiple-complex-inputs>Multiple complex inputs</a></ul><li><a href=#linter>Linter</a></ul></div></div><h2 id=notes>Notes</h2><h3 id=design-recipe>Design Recipe</h3><ul><li>Functions<ol><li>Write a signature<li>Write a purpose statement<li>Write at least 2 tests*<li>Write the code</ol></ul><p>Tests have to cover every edge case -- common ones include the empty list, empty string, negative numbers or zero, etc. If the data type is an enumeration or union, the tests should cover each enumeration value or subtype.<p>It is not possible to test functions that <em>call</em> <code>big-bang</code> with the tools we have, because the return value is affected by user input. The functions which handle events from <code>big-bang</code> should be tested like any other function. Functions which call <code>random</code> should be checked with <code>check-random</code>, and functions which may return inexact numbers have <code>check-within</code> tests.<ul><li>Data 0. Complete this step above the function if you use a type that isn't well-known (not needed for String, Int, PositiveReal, Boolean, etc.)<ol><li>Write a data definition stating the type name and what data it can hold<li>Write an interpretation statement for the type<li>Write some constants that have the type (these are used later for testing)<li><strong>Write a template that branches, deconstructs, and/or recurses through this type of data, calling templates when encountering other designed types</strong></ol></ul><p>Example:<pre><code class=language-scheme>; A Side is one of:
+<!doctype html><html lang="en"><head><link rel="icon" href="/favicon-32x32.png?v=63e0b008eeeb829346581f2691cad995" type="image/png"><link rel="manifest" href="/manifest.webmanifest"><link rel="apple-touch-icon" href="/icons/icon-48x48.png?v=63e0b008eeeb829346581f2691cad995" type="image/png"><link rel="apple-touch-icon" href="/icons/icon-72x72.png?v=63e0b008eeeb829346581f2691cad995" type="image/png"><link rel="apple-touch-icon" href="/icons/icon-96x96.png?v=63e0b008eeeb829346581f2691cad995" type="image/png"><link rel="apple-touch-icon" href="/icons/icon-144x144.png?v=63e0b008eeeb829346581f2691cad995" type="image/png"><link rel="apple-touch-icon" href="/icons/icon-192x192.png?v=63e0b008eeeb829346581f2691cad995" type="image/png"><link rel="apple-touch-icon" href="/icons/icon-256x256.png?v=63e0b008eeeb829346581f2691cad995" type="image/png"><link rel="apple-touch-icon" href="/icons/icon-384x384.png?v=63e0b008eeeb829346581f2691cad995" type="image/png"><link rel="apple-touch-icon" href="/icons/icon-512x512.png?v=63e0b008eeeb829346581f2691cad995" type="image/png">
+      <title data-react-helmet="true">Fundamentals of CS 1 | Dylan Burati</title>
+      <meta data-react-helmet="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-react-helmet="true" name="description" content="My personal website, built with Gatsby">
+      
+      <script type="text/javascript">!function(){try{var t=localStorage.theme||"light";document.documentElement.dataset.theme=t}catch(t){}}()</script>
+    <script defer src="/index.E6ECGWYY.js"></script><link rel="stylesheet" href="/index.K72O5YB3.css"></head>
+    <body>
+      <div id="root"><nav class="py-3 px-5 bg-navy-dark"><div class="container flex items-center mx-auto"><a class="font-semibold text-xl text-gray-200 hover:text-white" href="/">Dylan Burati</a><button title="Toggle Theme" class="text-gray-400 hover:text-white ml-4"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="stroke-current" style="fill:transparent"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></button><div class="flex-grow"></div><a title="Blog" class="text-gray-400 hover:text-white ml-4" href="/blog">Blog</a><a title="GitHub" class="text-gray-400 hover:text-white ml-4" href="https://github.com/dylanburati"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="stroke-current" style="fill:transparent" aria-label="GitHub"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a><a title="LinkedIn" class="text-gray-400 hover:text-white ml-4" href="https://linkedin.com/in/dylanburati"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="stroke-current" style="fill:transparent" aria-label="LinkedIn"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a></div></nav><main class="px-5"><div class="container mx-auto"><div class="my-8"><h1 class="mb-0">Fundamentals of CS 1</h1><span class="text-pen-lighter">10/25/2019<span class="px-3 text-paper-dark text-lg pb-px">|</span>Dylan Burati</span></div><div data-md-article=""><p>Notes/tools for Northeastern's intro to CS class.</p>
+<h2 id="background">Background</h2>
+<p>Northeastern's computer science faculty decided at some point to rewrite their
+introductory CS classes, to have a focus on designing programs over just writing
+code. The course is taught in <a href="https://racket-lang.org">Racket</a>, or more specifically, the
+<a href="https://felleisen.org/matthias/OnHtDP/Teaching_Languages___SL___Not_Racket.html">"Teaching Languages"</a>, which are subsets of Racket that limit
+certain language features and promote test-driven development.</p>
+<div class="table-of-contents max-w-xs shadow-lg p-5 border-paper-dark border rounded"><p class="mb-0 font-bold text-sm uppercase">TABLE OF CONTENTS</p><div class="mt-2 mr-5"><ul><li><a href="#background">Background</a></li><li><a href="#notes">Notes</a><ul><li><a href="#design-recipe">Design Recipe</a></li><li><a href="#following-the-design-recipe">Following the Design Recipe</a></li><li><a href="#list-abstractions">List Abstractions</a></li><li><a href="#local-lambda">Local, Lambda</a></li><li><a href="#multiple-complex-inputs">Multiple complex inputs</a></li></ul></li><li><a href="#linter">Linter</a></li></ul></div></div>
+<h2 id="notes">Notes</h2>
+<h3 id="design-recipe">Design Recipe</h3>
+<ul>
+<li>Functions<!-- -->
+<ol>
+<li>Write a signature</li>
+<li>Write a purpose statement</li>
+<li>Write at least 2 tests*</li>
+<li>Write the code</li>
+</ol>
+</li>
+</ul>
+<p>Tests have to cover every edge case -- common ones include the empty list, empty
+string, negative numbers or zero, etc. If the data type is an enumeration or
+union, the tests should cover each enumeration value or subtype.</p>
+<p>It is not possible to test functions that <em>call</em> <code>big-bang</code> with the tools we
+have, because the return value is affected by user input. The functions which
+handle events from <code>big-bang</code> should be tested like any other function.
+Functions which call <code>random</code> should be checked with <code>check-random</code>, and
+functions which may return inexact numbers have <code>check-within</code> tests.</p>
+<ul>
+<li>Data 0. Complete this step above the function if you use a type that isn't
+well-known (not needed for String, Int, PositiveReal, Boolean, etc.)<!-- -->
+<ol>
+<li>Write a data definition stating the type name and what data it can hold</li>
+<li>Write an interpretation statement for the type</li>
+<li>Write some constants that have the type (these are used later for testing)</li>
+<li><strong>Write a template that branches, deconstructs, and/or recurses through
+this type of data, calling templates when encountering other designed
+types</strong></li>
+</ol>
+</li>
+</ul>
+<p>Example:</p>
+<pre><code class="language-scheme">; A Side is one of:
 ; - "left"
 ; - "center"
 ; - "right"
@@ -48,7 +97,13 @@
         (...
           (weight-temp (first lst))
           (seesaw-temp (rest lst)))])))
-</code></pre><h3 id=following-the-design-recipe>Following the Design Recipe</h3><p>If the template calls another template, it indicates that the function using the template needs another function to do work on the other data type. Other indicators are long and nested parts of the function, repeated selectors, and if statements deciding between similar recursive calls.<pre><code class=language-scheme>(define ACCEL-GRAVITY 9.8)
+</code></pre>
+<h3 id="following-the-design-recipe">Following the Design Recipe</h3>
+<p>If the template calls another template, it indicates that the function using the
+template needs another function to do work on the other data type. Other indicators
+are long and nested parts of the function, repeated selectors, and if statements
+deciding between similar recursive calls.</p>
+<pre><code class="language-scheme">(define ACCEL-GRAVITY 9.8)
 ; seesaw-torque : SeeSaw PosNumber -> Number
 ; Determines the torque in newton-meters on a see-saw with the given length in meters
 (check-expect (seesaw-torque SEESAW-0 2) 0)
@@ -71,7 +126,10 @@
 ;         ACCEL-GRAVITY
 ;         (weight-mass (first lst)))
 ;       (seesaw-torque (rest lst) len))]))
-</code></pre><p>Note: inlining an <code>if</code> returning 0 or 1 can be OK, but it's always preferred to use helper functions.<pre><code class=language-scheme>; same tests
+</code></pre>
+<p>Note: inlining an <code>if</code> returning 0 or 1 can be OK, but it's always preferred to
+use helper functions.</p>
+<pre><code class="language-scheme">; same tests
 (define (seesaw-torque lst len)
   (cond
     [(empty? los) 0]
@@ -105,13 +163,15 @@
     [(string=? side SIDE-LEFT) -0.5]
     [(string=? side SIDE-CENTER) 0]
     [(string=? side SIDE-RIGHT) 0.5]))
-</code></pre><h3 id=list-abstractions>List Abstractions</h3><pre><code class=language-scheme>;;; (length (build-list n ??)) === n
+</code></pre>
+<h3 id="list-abstractions">List Abstractions</h3>
+<pre><code class="language-scheme">;;; (length (build-list n ??)) === n
 ; (X) NatNum [NatNum -> X] -> [List-of X]
 ; constructs a list by applying f to 0, 1, ..., (sub1 n)
 ; (build-list n f) == (list (f 0) ... (f (- n 1)))
 (define (build-list n f) ...)
 
-;;; (length (filter p lx)) &#60= (length lx)
+;;; (length (filter p lx)) &#x3C;= (length lx)
 ; (X) [X -> Boolean] [List-of X] -> [List-of X]
 ; produces a list from those items on lx for which p holds
 (define (filter p lx) ...)
@@ -160,7 +220,12 @@
   (foldr
     * 1
     (build-list n add1)))
-</code></pre><h3 id=local-lambda>Local, Lambda</h3><p>A local scope can allow you to define a function that references a function argument without requiring that argument as input. Using <code>lambda</code> or <code>λ</code> (Ctrl+\) also creates a function in the local scope.<pre><code class=language-scheme>; usd-to-euro : [List-of Number] Number -> [List-of Number]
+</code></pre>
+<h3 id="local-lambda">Local, Lambda</h3>
+<p>A local scope can allow you to define a function that references a function
+argument without requiring that argument as input. Using <code>lambda</code> or <code>λ</code>
+(Ctrl+\) also creates a function in the local scope.</p>
+<pre><code class="language-scheme">; usd-to-euro : [List-of Number] Number -> [List-of Number]
 ; Converts all the currency values in the given list from USD to EUR,
 ; using the given number as the EUR/USD rate
 
@@ -179,7 +244,15 @@
   (map
     (λ (x) (* x rate))
     lon))
-</code></pre><h3 id=multiple-complex-inputs>Multiple complex inputs</h3><p>Determine which type of processing the function will do:<ol><li>Sequential - apply one template and then the other<li>Parallel - determine all situations via "joint" templates<li>Cross - use template for one, with template for other as inner call</ol><pre><code class=language-scheme>(define (list-temp loa)
+</code></pre>
+<h3 id="multiple-complex-inputs">Multiple complex inputs</h3>
+<p>Determine which type of processing the function will do:</p>
+<ol>
+<li>Sequential - apply one template and then the other</li>
+<li>Parallel - determine all situations via "joint" templates</li>
+<li>Cross - use template for one, with template for other as inner call</li>
+</ol>
+<pre><code class="language-scheme">(define (list-temp loa)
   (...
    (cond
      [(empty? loa) ...]
@@ -261,4 +334,17 @@
   (ormap
    (λ (current-el) (same? el current-el))
    lox))
-</code></pre><h2 id=linter>Linter</h2><p>A tool which checks that after every signature, there is a purpose statement, ≥2 tests which call the function named in the signature, and a function definition with the same name. It also checks that there are no function definitions without a signature, in top-level or local scopes. <a href=https://github.com/dylanburati/teachlangs-lint>View the source</a><p>If your code generates many warnings under one function design, make sure your signatures have spaces surrounding the arrow. <code>Number -> Number</code> denotes 1 input and 1 output, but <code>Number-> Number</code> is read as two types called <code>Number-></code> and <code>Number</code>.<div><div><textarea class="text-sm bg-paper border-2 focus:border-accent-200 font-mono leading-tight p-2 placeholder-pen-light w-full"placeholder="Paste code from DrRacket"spellcheck=false style=height:25rem></textarea></div><button class="rounded bg-accent-200 hover:bg-accent px-4 py-2 text-white">Check</button></div></div></div></main><footer class="px-5 mt-10"><div class="container mx-auto text-sm parskip-0 pb-10 pt-5"><p>© Dylan Burati 2023</div></footer></div>
+</code></pre>
+<h2 id="linter">Linter</h2>
+<p>A tool which checks that after every signature, there is a purpose statement,
+≥2 tests which call the function named in the signature, and a function
+definition with the same name. It also checks that there are no function
+definitions without a signature, in top-level or local scopes.
+<a href="https://github.com/dylanburati/teachlangs-lint">View the source</a></p>
+<p>If your code generates many warnings under one function design, make sure your
+signatures have spaces surrounding the arrow. <code>Number -> Number</code> denotes 1 input
+and 1 output, but <code>Number-> Number</code> is read as two types called <code>Number-></code> and
+<code>Number</code>.</p>
+<div><div><textarea class="w-full font-mono text-sm leading-tight border-2 focus:border-accent-200 p-2 placeholder-pen-light bg-paper" placeholder="Paste code from DrRacket" spellcheck="false" style="height:25rem"></textarea></div><button class="bg-accent-200 hover:bg-accent text-white py-2 px-4 rounded">Check</button></div></div></div></main><footer class="px-5 mt-10"><div class="container mx-auto pt-5 pb-10 text-sm parskip-0"><p>© Dylan Burati <!-- -->2023</p></div></footer></div>
+    
+  </body></html>
