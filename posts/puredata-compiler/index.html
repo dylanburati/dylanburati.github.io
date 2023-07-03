@@ -3,9 +3,9 @@
       <meta data-react-helmet="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-react-helmet="true" name="description" content="My personal website, built with Gatsby">
       
       <script type="text/javascript">!function(){try{var t=localStorage.theme||"light";document.documentElement.dataset.theme=t}catch(t){}}()</script>
-    <script defer src="/index.E6ECGWYY.js"></script><link rel="stylesheet" href="/index.K72O5YB3.css"></head>
+    <script defer src="/index.RGNPP76D.js"></script><link rel="stylesheet" href="/index.T6I5GL4E.css"></head>
     <body>
-      <div id="root"><nav class="py-3 px-5 bg-navy-dark"><div class="container flex items-center mx-auto"><a class="font-semibold text-xl text-gray-200 hover:text-white" href="/">Dylan Burati</a><button title="Toggle Theme" class="text-gray-400 hover:text-white ml-4"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="stroke-current" style="fill:transparent"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></button><div class="flex-grow"></div><a title="Blog" class="text-gray-400 hover:text-white ml-4" href="/blog">Blog</a><a title="GitHub" class="text-gray-400 hover:text-white ml-4" href="https://github.com/dylanburati"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="stroke-current" style="fill:transparent" aria-label="GitHub"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a><a title="LinkedIn" class="text-gray-400 hover:text-white ml-4" href="https://linkedin.com/in/dylanburati"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="stroke-current" style="fill:transparent" aria-label="LinkedIn"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a></div></nav><main class="px-5"><div class="container mx-auto"><div class="my-8"><h1 class="mb-0">PureData Compiler</h1><span class="text-pen-lighter">9/29/2019<span class="px-3 text-paper-dark text-lg pb-px">|</span>Dylan Burati</span></div><div data-md-article=""><p>This post is about a tool I created for writing PureData patches as Python
+      <div id="root"><nav class="py-3 px-5 bg-navy-dark"><div class="container flex items-center mx-auto"><a class="font-semibold text-xl text-gray-200 hover:text-white" href="/">Dylan Burati</a><button title="Toggle Theme" class="text-gray-400 hover:text-white ml-4"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="stroke-current" style="fill:transparent"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></button><div class="flex-grow"></div><a title="Blog" class="text-gray-400 hover:text-white ml-4" href="/blog">Blog</a><a title="GitHub" class="text-gray-400 hover:text-white ml-4" href="https://github.com/dylanburati"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="stroke-current" style="fill:transparent" aria-label="GitHub"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a><a title="LinkedIn" class="text-gray-400 hover:text-white ml-4" href="https://linkedin.com/in/dylanburati"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="stroke-current" style="fill:transparent" aria-label="LinkedIn"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a></div></nav><main class="px-5 post"><div class="container mx-auto"><div class="my-8"><h1 class="mb-0">PureData Compiler</h1><span class="text-pen-lighter">9/30/2019<span class="px-3 text-paper-dark text-lg pb-px">|</span>Dylan Burati</span></div><div data-md-article=""><p>This post is about a tool I created for writing PureData patches as Python
 programs. The current version is on <a href="https://github.com/dylanburati/puredata-compiler">Github</a> and <a href="https://pypi.org/project/puredata-compiler">PyPI</a> (supports
 Python 3.5 and later).</p>
 <h2 id="background">Background</h2>
@@ -48,10 +48,10 @@ productive using a text-based language for PureData. I found the .pd file format
 docs <a href="https://puredata.info/docs/developer/PdFileFormat">here</a> and wrote the first draft of my compiler.</p>
 <p>I ended up with a 550 line program, with the "source" to compile from in a long
 multiline string at the top. The following is an excerpt:</p>
-<pre><code class="language-python">from typing import *
-import re
+<pre><code class="hljs language-python"><span class="hljs-keyword">from</span> typing <span class="hljs-keyword">import</span> *
+<span class="hljs-keyword">import</span> re
 
-sample = '''
+sample = <span class="hljs-string">'''
 def reactive_expr2
 obj reactor{local} = "trigger bang float" ({2})
 obj {3} = "{0}" ({1} reactor{local}$1, reactor{local}$2)
@@ -65,30 +65,30 @@ obj soundfiler = "soundfiler" (reader$1)
 floatatom lenSamples = "" (soundfiler$1)
 
 # ... playback array1
-'''
-# ... regex parsing utilities
+'''</span>
+<span class="hljs-comment"># ... regex parsing utilities</span>
 
-def compile(s_commented, filename, subpatches=None, include_canvas=True):
-    s = '\n'.join([read_to_delimiter(commented_line, 0, '#')[0] for commented_line in s_commented.splitlines()])
-    start_idx = 0
-    base_x = 25
-    base_y = 25
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">compile</span>(<span class="hljs-params">s_commented, filename, subpatches=<span class="hljs-literal">None</span>, include_canvas=<span class="hljs-literal">True</span></span>):
+    s = <span class="hljs-string">'\n'</span>.join([read_to_delimiter(commented_line, <span class="hljs-number">0</span>, <span class="hljs-string">'#'</span>)[<span class="hljs-number">0</span>] <span class="hljs-keyword">for</span> commented_line <span class="hljs-keyword">in</span> s_commented.splitlines()])
+    start_idx = <span class="hljs-number">0</span>
+    base_x = <span class="hljs-number">25</span>
+    base_y = <span class="hljs-number">25</span>
     current_x = base_x
     current_y = base_y
-    line_step = 0  # type=0 identifier=1 text=2 wiring=3 funcdef=10 funccall=20 error=-1
-    if subpatches is None:
+    line_step = <span class="hljs-number">0</span>  <span class="hljs-comment"># type=0 identifier=1 text=2 wiring=3 funcdef=10 funccall=20 error=-1</span>
+    <span class="hljs-keyword">if</span> subpatches <span class="hljs-keyword">is</span> <span class="hljs-literal">None</span>:
         subpatches = {}
     lines = []
     connections = []
     functions = {}
     pending_connections = {}
-    current_fn = None
-    while start_idx >= 0:
-        if line_step == 0:
-            # parse stuff, increase start_idx,
-            # do stuff, update line_step, repeat
-        elif line_step == 1:
-            # ...
+    current_fn = <span class="hljs-literal">None</span>
+    <span class="hljs-keyword">while</span> start_idx >= <span class="hljs-number">0</span>:
+        <span class="hljs-keyword">if</span> line_step == <span class="hljs-number">0</span>:
+            <span class="hljs-comment"># parse stuff, increase start_idx,</span>
+            <span class="hljs-comment"># do stuff, update line_step, repeat</span>
+        <span class="hljs-keyword">elif</span> line_step == <span class="hljs-number">1</span>:
+            <span class="hljs-comment"># ...</span>
 </code></pre>
 <h2 id="attempt-2">Attempt 2</h2>
 <p>After I had worked with my hacked-together version for a while, I identified
@@ -120,32 +120,32 @@ PureData objects also became classes, which are constructed with only the data
 they need. Python's ability to overload indexers via <code>__getitem__</code> made it
 easy to refer to outlets as integer-keyed properties of their owner objects.</p>
 <h3 id="example-usage">Example Usage</h3>
-<pre><code class="language-python">from puredata_compiler import Patch, write_file
+<pre><code class="hljs language-python"><span class="hljs-keyword">from</span> puredata_compiler <span class="hljs-keyword">import</span> Patch, write_file
 
 
-def example():
-    """Patch that increments a counter"""
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">example</span>():
+    <span class="hljs-string">"""Patch that increments a counter"""</span>
     patch = Patch()
-    obj, msg, floatatom, connect = patch.get_creators('obj, msg, floatatom, connect')
+    obj, msg, floatatom, connect = patch.get_creators(<span class="hljs-string">'obj, msg, floatatom, connect'</span>)
 
-    bang = msg('bang')
-    delay_params = msg('500', new_row=0, new_col=1)
-    delay_trig = obj('t b f', delay_params[0])
-    delay = obj('delay', delay_trig[0], delay_trig[1])
+    bang = msg(<span class="hljs-string">'bang'</span>)
+    delay_params = msg(<span class="hljs-string">'500'</span>, new_row=<span class="hljs-number">0</span>, new_col=<span class="hljs-number">1</span>)
+    delay_trig = obj(<span class="hljs-string">'t b f'</span>, delay_params[<span class="hljs-number">0</span>])
+    delay = obj(<span class="hljs-string">'delay'</span>, delay_trig[<span class="hljs-number">0</span>], delay_trig[<span class="hljs-number">1</span>])
 
-    start_val = obj('f', (bang[0], delay[0]), x_pos=25, y_pos=125)
-    increment = floatatom(new_row=0)
-    current_val = obj('+', start_val[0], increment[0])
-    # connect is different - it takes an existing element and adds connections,
-    # so you can create circular structures
-    connect(start_val, (), current_val[0])
-    current_val_display = floatatom(current_val[0])
+    start_val = obj(<span class="hljs-string">'f'</span>, (bang[<span class="hljs-number">0</span>], delay[<span class="hljs-number">0</span>]), x_pos=<span class="hljs-number">25</span>, y_pos=<span class="hljs-number">125</span>)
+    increment = floatatom(new_row=<span class="hljs-number">0</span>)
+    current_val = obj(<span class="hljs-string">'+'</span>, start_val[<span class="hljs-number">0</span>], increment[<span class="hljs-number">0</span>])
+    <span class="hljs-comment"># connect is different - it takes an existing element and adds connections,</span>
+    <span class="hljs-comment"># so you can create circular structures</span>
+    connect(start_val, (), current_val[<span class="hljs-number">0</span>])
+    current_val_display = floatatom(current_val[<span class="hljs-number">0</span>])
 
-    return patch
+    <span class="hljs-keyword">return</span> patch
 
-if __name__ == "__main__":
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">"__main__"</span>:
     pd_example = example()
-    write_file('pd_example.pd', str(pd_example))
+    write_file(<span class="hljs-string">'pd_example.pd'</span>, <span class="hljs-built_in">str</span>(pd_example))
 </code></pre>
 <h3 id="result">Result</h3>
 <p><img src="/assets/puredata-compiler1.png" alt="pd_example.pd"></p>
